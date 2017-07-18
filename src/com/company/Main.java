@@ -5,11 +5,34 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        double operand1 = 0;
+        double operand2 = 0;
+        boolean firstOperand = true;
+        boolean secondOperand = true;
 
-        System.out.println("What is your first number?");
-        double operand1 = Double.parseDouble(scanner.nextLine());
-        System.out.println("What is your second number?");
-        double operand2 = Double.parseDouble(scanner.nextLine());
+        while(firstOperand){
+            try {
+                System.out.println("What is your first number?");
+                operand1 = Double.parseDouble(scanner.nextLine());
+                firstOperand = false;
+            }
+            catch (NumberFormatException ex){
+                System.out.println("Your input was not a number. Please try again.");
+                firstOperand = true;
+            }
+        }
+
+        while(secondOperand){
+            try {
+                System.out.println("What is your second number?");
+                operand2 = Double.parseDouble(scanner.nextLine());
+                secondOperand = false;
+            }
+            catch (NumberFormatException ex){
+                System.out.println("Your input was not a number. Please try again.");
+                secondOperand = true;
+            }
+        }
 
         double sum = operand1 + operand2;
         double difference = operand1 - operand2;
